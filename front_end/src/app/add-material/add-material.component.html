@@ -1,0 +1,57 @@
+<form class="form-fieldset" [formGroup]="form" (ngSubmit)="Submit()">
+
+ <div class="mb-3">
+      <label class="form-label required">تاريخ الرصد</label>
+      <input type="date" class="form-control" autocomplete="off" formControlName="monitor_date" 
+      min="1900-01-01"/>
+    </div>
+
+
+          <div class="mb-3">
+                <div class="form-label required">اللغة</div>
+                <select class="form-select" formControlName="language">
+                  <option value="arabic">عربي</option>
+                  <option value="english">إنجليزي</option>
+                </select>
+              </div>
+
+
+
+              <div class="mb-3">
+                    <div class="form-label required">القسم</div>
+                    <select class="form-select" formControlName="section">
+                      <option value="politic">السياسة</option>
+                      <option value="sport">الرياضة</option>
+                      <option value="social">الاجتماعي</option>
+                    </select>
+                  </div>
+              
+    
+     <div class="mb-3">
+      <label class="form-label">الرابط</label>
+      <input type="url" class="form-control" autocomplete="off" formControlName="url"/>
+    </div> 
+
+    <div class="mb-3">
+            <label class="form-label">الكاتب</label>
+            <input type="text" class="form-control" autocomplete="off" formControlName="author"/>
+          </div> 
+
+          <div class="mb-3">
+                <label class="form-label">ارفق ملف</label>
+                <input type="file" accept="application/pdf, image/png" class="form-control" autocomplete="off" formControlName="file"/>
+              </div> 
+
+          <div class="mb-3">
+                <label class="form-label">العنوان</label>
+                <input type="text" class="form-control" autocomplete="off" formControlName="title"/>
+              </div> 
+
+              <div class="mb-3">
+                    <label class="form-label">المحتوى</label>
+                    <input type="text" class="form-control" autocomplete="off" formControlName="content"/>
+                  </div> 
+
+                  <button class="btn" class="" type="submit">إضافة</button>
+
+  </form>
