@@ -4,22 +4,25 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
 import static java.util.Calendar.DATE;
 
+// Materials model
 @Entity
 @Table(name = "materials")
 public class Materials {
 
+//   define properties and its constraint
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank(message = "monitor_date is mandatory")
-    private String monitor_date;
+    @Column(nullable = false)
+    private LocalDate monitor_date;
 
     @NotBlank(message = "language is mandatory")
     private String language;
@@ -35,16 +38,18 @@ public class Materials {
 
     private String file;
 
+    @NotBlank(message = "title is mandatory")
     @Length(max = 150)
     private String title;
 
+    @NotBlank(message = "content is mandatory")
     @Length(max = 1000)
     private String content;
 
     public Materials() {
     }
 
-    public Materials(Long id, String monitor_date, String language,
+    public Materials(Long id, LocalDate monitor_date, String language,
                      String section, String url, String author,
                      String file, String title, String content) {
         this.id = id;
@@ -66,11 +71,11 @@ public class Materials {
         this.id = id;
     }
 
-    public String getMonitor_date() {
+    public LocalDate getMonitor_date() {
         return monitor_date;
     }
 
-    public void setMonitor_date(String monitor_date) {
+    public void setMonitor_date(LocalDate monitor_date) {
         this.monitor_date = monitor_date;
     }
 

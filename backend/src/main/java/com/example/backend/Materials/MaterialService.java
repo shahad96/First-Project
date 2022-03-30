@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+// Materials service
 @Service
 public class MaterialService {
 
@@ -31,12 +32,14 @@ public class MaterialService {
         return materialDao.findAll();
     }
 
+//    delete material by id
     public void deleteMaterial(String id){
 
         Long material_id = Long.parseLong(id);
         materialDao.deleteById(material_id);
     }
 
+//    get material by id to show material details
     public Materials getMaterialById(String id){
 
         Long material_id = Long.parseLong(id);

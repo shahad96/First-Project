@@ -2,7 +2,7 @@
 export class Material{
 
     id:number;
-    monitor_date:string
+    monitor_date:Date
     language:string
     section:string
     url:string

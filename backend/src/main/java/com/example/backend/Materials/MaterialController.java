@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+// Materials controller
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path="material")
@@ -24,11 +25,9 @@ public class MaterialController {
     @PostMapping("/post")
     public void createMaterial(@RequestBody Materials material){
 
-//        parse the date from string type to date type to check if the year is greater or equal to 1900
-//        other ways the material is not valid to be added to the database
-        LocalDate date = LocalDate.parse(material.getMonitor_date());
-
-        if(date.getYear() >= 1900) {
+//        check if the year is greater or equal to 1900
+//        other ways the material is not valid to be added
+        if(material.getMonitor_date().getYear() >= 1900) {
             materialService.createMaterial(material);
         }
     }

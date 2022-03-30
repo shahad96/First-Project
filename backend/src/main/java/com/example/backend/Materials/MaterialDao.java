@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+// Materials repository
 @Repository
 public interface MaterialDao extends JpaRepository<Materials, Long> {
 
