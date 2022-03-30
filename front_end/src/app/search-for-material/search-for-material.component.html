@@ -1,0 +1,36 @@
+
+<input type="text" class="form-control" placeholder="البحث..." (change)="search()" [(ngModel)]="search_key">
+
+
+<div class="table-responsive">
+    <table
+          class="table table-vcenter">
+      <thead>
+        <tr>
+          <th>العنوان</th>
+          <th>تاريخ الرصد</th>
+          <th>الكاتب</th>
+          <th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let material of materials; let i = index">
+          <td>{{material.title}}</td>
+          <td class="text-muted" >{{material.monitor_date}}</td>
+          <td class="text-muted" ><a href="#" class="text-reset">{{material.author}}</a></td>
+          <td>
+            <a class="btn btn-ghost-dark">عرض</a>
+            <br>
+            <a class="btn btn-ghost-dark">تعديل</a>
+            <br>
+            <a class="btn btn-ghost-dark" (click)="deleteMaterial(i)">حذف</a>
+          </td>
+        </tr>
+       
+        
+        
+        
+      </tbody>
+    </table>
+  </div>

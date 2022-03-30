@@ -11,7 +11,7 @@ import java.util.Date;
 import static java.util.Calendar.DATE;
 
 @Entity
-@Table(name = "matrerials")
+@Table(name = "materials")
 public class Materials {
 
     @Id

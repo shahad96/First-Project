@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AddMaterialModule } from './add-material/add-material.module';
+import { SearchForMaterialModule } from './search-for-material/search-for-material.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AddMaterialModule } from './add-material/add-material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AddMaterialModule
+    AddMaterialModule,
+    SearchForMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
