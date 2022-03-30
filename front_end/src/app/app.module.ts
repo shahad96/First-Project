@@ -11,7 +11,8 @@ import { SearchForMaterialModule } from './search-for-material/search-for-materi
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<div class="card d-flex flex-column">
+        <div class="row row-0 flex-fill">
+          <div class="col-md-3">
+              <!-- <img src={{material.file}} class="w-100 h-100 object-cover" alt="Card side image"> -->
+          </div>
+          <div class="col">
+            <div class="card-body">
+                    <h3 class="card-title">{{material.file}}</h3>
+              <h3 class="card-title">{{material.title}}</h3>
+              <div class="text-muted">تاريخ الرصد: {{material.monitor_date}}</div>
+              <div class="text-muted">اللغة: {{material.language}}</div>
+              <div class="text-muted">القسم: {{material.section}}</div>
+              <div class="text-muted">الكاتب: {{material.author}}</div>
+              <div class="text-muted">المحتوى: {{material.content}}</div>
+              <div class="text-muted">الرابط: <a href={{material.url}}>{{material.url}}</a></div>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>

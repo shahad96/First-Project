@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { Material } from '../material';
 
 @Injectable()
 export class MaterialService{
@@ -12,15 +13,21 @@ export class MaterialService{
     }
 
     GetAllMaterials(){
-       return this.http.get<any>('http://localhost:8080/material/all-materials');
+       return this.http.get<Material[]>('http://localhost:8080/material/all-materials');
     }
 
     searchForMaterial(key:string){
-        return this.http.get<any>(`http://localhost:8080/material/search/${key}`);
+        return this.http.get<Material[]>(`http://localhost:8080/material/search/${key}`);
     }
 
     deleteMaterial(id:number){
         this.http.delete(`http://localhost:8080/material/delete/${id}`).subscribe();
     }
+
+    getMaterialById(id:number){
+        return this.http.get<Material>(`http://localhost:8080/material/${id}`);
+    }
+
+    
     
 }

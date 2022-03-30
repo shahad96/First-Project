@@ -22,8 +22,8 @@ export class AddMaterialComponent implements OnInit {
       'url' : new FormControl(null,Validators.maxLength(100)),
       'author' : new FormControl(null,Validators.maxLength(50)),
       'file' : new FormControl(null),
-      'title' : new FormControl(null,Validators.maxLength(150)),
-      'content' : new FormControl(null,Validators.maxLength(1000))
+      'title' : new FormControl(null,[Validators.maxLength(150),Validators.required]),
+      'content' : new FormControl(null,[Validators.maxLength(1000),Validators.required])
     })
 
   }

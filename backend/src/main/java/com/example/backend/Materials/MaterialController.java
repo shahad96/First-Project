@@ -53,4 +53,10 @@ public class MaterialController {
 
         materialService.deleteMaterial(id);
     }
+
+    //    get material by specific id
+    @GetMapping("/{id}")
+    public Materials getMaterialById(@PathVariable String id){
+        return materialService.getMaterialById(id);
+    }
 }

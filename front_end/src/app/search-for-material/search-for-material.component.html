@@ -16,21 +16,19 @@
       <tbody>
 
         <tr *ngFor="let material of materials; let i = index">
-          <td>{{material.title}}</td>
+          <td (click)="details(i)">{{material.title}}</td>
           <td class="text-muted" >{{material.monitor_date}}</td>
           <td class="text-muted" ><a href="#" class="text-reset">{{material.author}}</a></td>
           <td>
-            <a class="btn btn-ghost-dark">عرض</a>
+            <a class="btn btn-ghost-dark" (click)="details(i)">عرض</a>
             <br>
             <a class="btn btn-ghost-dark">تعديل</a>
             <br>
             <a class="btn btn-ghost-dark" (click)="deleteMaterial(i)">حذف</a>
           </td>
         </tr>
-       
-        
-        
-        
       </tbody>
     </table>
   </div>
+
+ 

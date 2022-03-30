@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MaterialService } from '../Services/material.service'
+import { MaterialService } from '../Services/material.service';
+import { Router } from '@angular/router';
+import { Material } from '../material';
 
 
 @Component({
@@ -9,13 +11,12 @@ import { MaterialService } from '../Services/material.service'
 })
 export class SearchForMaterialComponent implements OnInit {
 
-  materials:{id:number, monitor_date:string , language:string, section:string,
-    url:string, author:string, file:string, title:string, content:string}[];
+    materials:Material[];
 
     search_key:string;
     
 
-  constructor(private materialService:MaterialService) { 
+  constructor(private materialService:MaterialService, private router:Router) { 
 
 
   }
@@ -33,7 +34,7 @@ search(){
 
   if(this.search_key !== ""){
     this.materialService.searchForMaterial(this.search_key).subscribe(
-      (response:any) => {
+      (response:Material[]) => {
         this.materials = response;
       }
     );
@@ -46,7 +47,7 @@ search(){
 
 GetAllMaterials(){
   this.materialService.GetAllMaterials().subscribe(
-    (response:any) => {
+    (response:Material[]) => {
       this.materials = response;
     }
   );
@@ -55,5 +56,9 @@ GetAllMaterials(){
 deleteMaterial(i:number){
   this.materialService.deleteMaterial(this.materials[i].id); 
   this.GetAllMaterials();
+}
+
+details(i:number){
+  this.router.navigate(['/materials/details'],{queryParams: {id : this.materials[i].id}});
 }
 }
