@@ -11,8 +11,8 @@
           <div class="mb-3">
                 <div class="form-label required">اللغة</div>
                 <select class="form-select" formControlName="language">
-                  <option value="arabic">عربي</option>
-                  <option value="english">إنجليزي</option>
+                  <option value="عربي">عربي</option>
+                  <option value="إنجليزي">إنجليزي</option>
                 </select>
                 <p *ngIf="!form.get('language').valid && form.get('language').touched">*يجب أختيار اللغة</p>
               </div>
@@ -22,9 +22,9 @@
               <div class="mb-3">
                     <div class="form-label required">القسم</div>
                     <select class="form-select" formControlName="section">
-                      <option value="politic">السياسة</option>
-                      <option value="sport">الرياضة</option>
-                      <option value="social">الاجتماعي</option>
+                      <option value="السياسة">السياسة</option>
+                      <option value="الرياضة">الرياضة</option>
+                      <option value="الاجتماعي">الاجتماعي</option>
                     </select>
                     <p *ngIf="!form.get('section').valid && form.get('section').touched">*يجب أختيار القسم</p>
                   </div>

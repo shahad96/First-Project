@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit {
      });
 
 
+    //  get the material details to desplay in page
      this.materialService.getMaterialById(this.id).subscribe(
       (response:Material) => {
         console.log(response);
