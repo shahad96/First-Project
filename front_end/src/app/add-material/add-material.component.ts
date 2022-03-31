@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MaterialService } from '../Services/material.service'
+import { MaterialService } from '../Services/material.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-material',
@@ -11,7 +12,7 @@ export class AddMaterialComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private materialService:MaterialService) { }
+  constructor(private materialService:MaterialService, private router:Router) { }
 
   ngOnInit(): void {
     
@@ -32,6 +33,7 @@ export class AddMaterialComponent implements OnInit {
 
     console.log(this.form.value);
     this.materialService.AddMaterial(this.form);
-    // this.form.reset();
+    // routerLink="materials"
+    this.router.navigate(['/materials']);
   }
 }

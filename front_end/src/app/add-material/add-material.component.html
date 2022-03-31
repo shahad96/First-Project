@@ -2,7 +2,7 @@
 
  <div class="mb-3">
       <label class="form-label required">تاريخ الرصد</label>
-      <input type="date" class="form-control" autocomplete="off" formControlName="monitor_date" 
+      <input type="date" class="form-control" autocomplete="on" formControlName="monitor_date" 
       min="1900-01-01"/>
       <p *ngIf="!form.get('monitor_date').valid && form.get('monitor_date').touched">*يجب إدخال تاريخ الرصد</p>
     </div>
@@ -59,6 +59,6 @@
                     <p *ngIf="!form.get('content').valid && form.get('content').touched">*يجب إدخال المحتوى ويجب ان لا يزيد طوله عن 150 حرف</p>
                   </div> 
 
-                  <button class="btn btn-light" [disabled]="!form.valid" type="submit">إضافة</button>
+                  <button class="btn btn-light" [disabled]="!form.valid" type="submit" >إضافة</button>
 
   </form>
