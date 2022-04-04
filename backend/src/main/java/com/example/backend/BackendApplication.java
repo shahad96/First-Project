@@ -9,8 +9,6 @@ import java.time.LocalDate;
 public class BackendApplication {
 
 	public static void main(String[] args) {
-		LocalDate date = LocalDate.now();
-		System.out.println(date);
 		SpringApplication.run(BackendApplication.class, args);
 	}
 

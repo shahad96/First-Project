@@ -1,0 +1,65 @@
+<form class="form-fieldset" [formGroup]="form" (ngSubmit)="Submit()">
+
+    <div class="mb-3">
+         <label class="form-label required">تاريخ الرصد</label>
+         <input type="date" class="form-control" autocomplete="on" formControlName="monitor_date" 
+         min="1900-01-01"/>
+         <p *ngIf="!form.get('monitor_date').valid && form.get('monitor_date').touched">*يجب إدخال تاريخ الرصد</p>
+       </div>
+   
+   
+             <div class="mb-3">
+                   <div class="form-label required">اللغة</div>
+                   <select class="form-select" formControlName="language">
+                     <option value="عربي">عربي</option>
+                     <option value="إنجليزي">إنجليزي</option>
+                   </select>
+                   <p *ngIf="!form.get('language').valid && form.get('language').touched">*يجب أختيار اللغة</p>
+                 </div>
+   
+   
+   
+                 <div class="mb-3">
+                       <div class="form-label required">القسم</div>
+                       <select class="form-select" formControlName="section">
+                         <option value="السياسة">السياسة</option>
+                         <option value="الرياضة">الرياضة</option>
+                         <option value="الاجتماعي">الاجتماعي</option>
+                       </select>
+                       <p *ngIf="!form.get('section').valid && form.get('section').touched">*يجب أختيار القسم</p>
+                     </div>
+                 
+       
+        <div class="mb-3">
+         <label class="form-label">الرابط</label>
+         <input type="url" class="form-control" autocomplete="off" formControlName="url"/>
+         <p *ngIf="!form.get('url').valid && form.get('url').touched">*طول الرابط لايجب ان يزيد عن 100 حرف</p>
+       </div> 
+   
+       <div class="mb-3">
+               <label class="form-label">الكاتب</label>
+               <input type="text" class="form-control" autocomplete="off" formControlName="author"/>
+               <p *ngIf="!form.get('author').valid && form.get('author').touched">*طول الاسم لايجب ان يزيد عن 50 حرف</p>
+             </div> 
+   
+             <div class="mb-3">
+                   <label class="form-label">ارفق ملف ( يقبل فقط ملف pdf,png )</label>
+                   <input type="file" accept="application/pdf, image/png" class="form-control" autocomplete="off" formControlName="file"/>
+                 </div> 
+   
+             <div class="mb-3">
+                   <label class="form-label required">العنوان</label>
+                   <input type="text" class="form-control" autocomplete="off" formControlName="title"/>
+                   <p *ngIf="!form.get('title').valid && form.get('title').touched">*يجب إدخال العنوان ويجب ان لا يزيد طوله عن 150 حرف</p>
+                 </div> 
+   
+                 <div class="mb-3">
+                       <label class="form-label required">المحتوى</label>
+                       <input type="text" class="form-control" autocomplete="off" formControlName="content"/>
+                       <p *ngIf="!form.get('content').valid && form.get('content').touched">*يجب إدخال المحتوى ويجب ان لا يزيد طوله عن 150 حرف</p>
+                     </div> 
+   
+                     <button class="btn btn-light" [disabled]="!form.valid" type="submit" >حفظ التعديلات</button>
+   
+     </form>
+   

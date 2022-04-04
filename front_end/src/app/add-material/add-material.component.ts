@@ -12,7 +12,7 @@ export class AddMaterialComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private materialService:MaterialService, private router:Router) { }
+  constructor(private materialService:MaterialService,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -31,9 +31,7 @@ export class AddMaterialComponent implements OnInit {
 
   Submit(){
 
-    console.log(this.form.value);
     this.materialService.AddMaterial(this.form);
-    // routerLink="materials"
     this.router.navigate(['/materials']);
   }
 }

@@ -7,12 +7,13 @@ import { Material } from '../material';
 @Injectable()
 export class MaterialService{
 
-    constructor(private http: HttpClient,){}
+    constructor(private http: HttpClient){}
 
     // for adding new material to the database we send form 
     // to AddMaterial method and send(post) the form.value to the backend
     AddMaterial(form:FormGroup){
         this.http.post('http://localhost:8080/material/post',form.value).subscribe();
+        
     }
 
     // GetAllMaterials method evoke all materials to display 
@@ -27,7 +28,7 @@ export class MaterialService{
 
     // deleteMaterial method used to delete specific material by its id
     deleteMaterial(id:number){
-        this.http.delete(`http://localhost:8080/material/delete/${id}`).subscribe();
+        return this.http.delete<Material[]>(`http://localhost:8080/material/delete/${id}`);
     }
 
     // deleteMaterial method used to get specific material by its id
@@ -35,6 +36,10 @@ export class MaterialService{
         return this.http.get<Material>(`http://localhost:8080/material/${id}`);
     }
 
+    // update material info
+    updateMaterial(form:FormGroup,id:number){
+        this.http.put(`http://localhost:8080/material/update/${id}`,form.value).subscribe();
+    }
     
     
 }

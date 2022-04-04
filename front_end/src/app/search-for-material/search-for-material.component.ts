@@ -59,14 +59,23 @@ search(){
 }
 
 
-// delete material by it`s id
+// delete material by it`s id and return all remaining materials
 deleteMaterial(i:number){
-  this.materialService.deleteMaterial(this.materials[i].id); 
-  this.GetAllMaterials();
+  this.materialService.deleteMaterial(this.materials[i].id).subscribe(
+    (response:Material[]) => {
+      this.materials = response;
+    }
+  ); 
+  
 }
 
 // send the material id to the details component
 details(i:number){
   this.router.navigate(['/materials/details'],{queryParams: {id : this.materials[i].id}});
+}
+
+// send the material id to the update component
+update(i:number){
+  this.router.navigate(['/materials/update'],{queryParams: {id : this.materials[i].id}});
 }
 }

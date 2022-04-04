@@ -33,10 +33,11 @@ public class MaterialService {
     }
 
 //    delete material by id
-    public void deleteMaterial(String id){
+    public List<Materials> deleteMaterial(String id){
 
         Long material_id = Long.parseLong(id);
         materialDao.deleteById(material_id);
+        return materialDao.findAll();
     }
 
 //    get material by id to show material details
@@ -44,5 +45,12 @@ public class MaterialService {
 
         Long material_id = Long.parseLong(id);
         return materialDao.getById(material_id);
+    }
+
+//    update material
+    public void updateMaterial(String id,Materials material){
+        Long material_id = Long.parseLong(id);
+        material.setId(material_id);
+        materialDao.save(material);
     }
 }

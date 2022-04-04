@@ -21,17 +21,16 @@ public class MaterialController {
         this.materialService = materialService;
     }
 
-//    task one add material
+    //    task one add material
     @PostMapping("/post")
-    public void createMaterial(@RequestBody Materials material){
+    public void createMaterial(@RequestBody Materials material) {
 
 
         String fileExtension = "";
 
 //        file is not mandatory here we check if it`s added or not
 //        if it`s added we need to check if it`s valid
-        System.out.println(material.getFile());
-        if(material.getFile() != null) {
+        if (material.getFile() != null) {
 
 //        the last 4 characters from the file string represent the extension
 //        so i stored it in fileExtension
@@ -41,54 +40,63 @@ public class MaterialController {
 //        check if the year is greater or equal to 1900
 //        and language/section have valid value
 //        other ways the material is not valid to be added
-            if(material.getMonitor_date().getYear() >= 1900 &&
+            if (material.getMonitor_date().getYear() >= 1900 &&
                     (fileExtension.equals(".pdf") || fileExtension.equals(".png")) &&
-                    (material.getLanguage().equals("عربي") || material.getLanguage().equals("إنجليزي"))&&
-                    (material.getSection().equals("السياسة") || material.getSection().equals("الرياضة")||
-                    material.getSection().equals("الاجتماعي"))){
+                    (material.getLanguage().equals("عربي") || material.getLanguage().equals("إنجليزي")) &&
+                    (material.getSection().equals("السياسة") || material.getSection().equals("الرياضة") ||
+                            material.getSection().equals("الاجتماعي"))) {
 
                 materialService.createMaterial(material);
-            }}
+            }
+        }
 
 
 //            if the file not added
-        else{
+        else {
 //        check if the year is greater or equal to 1900
 //        and the file extension is either pdf or png
 //        and language/section have valid value
 //        other ways the material is not valid to be added
-        if(material.getMonitor_date().getYear() >= 1900 &&
-                (material.getLanguage().equals("عربي") || material.getLanguage().equals("إنجليزي"))&&
-                (material.getSection().equals("السياسة") || material.getSection().equals("الرياضة"))||
-                (material.getSection().equals("الاجتماعي"))){
+            if (material.getMonitor_date().getYear() >= 1900 &&
+                    (material.getLanguage().equals("عربي") || material.getLanguage().equals("إنجليزي")) &&
+                    (material.getSection().equals("السياسة") || material.getSection().equals("الرياضة")) ||
+                    (material.getSection().equals("الاجتماعي"))) {
 
-            materialService.createMaterial(material);
-        }}
+                materialService.createMaterial(material);
+            }
+        }
     }
 
-//    search method get`s all the materials that have by title
+    //    search method get`s all the materials that have by title
 //    (it works also when it is just part of the title)
     @GetMapping("/search/{title}")
-    public List<Materials> searchByTitle(@PathVariable String title){
+    public List<Materials> searchByTitle(@PathVariable String title) {
         return materialService.searchByTitle(title);
     }
 
-//    get all materials to show before search
+    //    get all materials to show before search
     @GetMapping("/all-materials")
-    public List<Materials> getAllMaterials(){
+    public List<Materials> getAllMaterials() {
         return materialService.getAllMaterials();
     }
 
-//    delete material by id
+    //    delete material by id
     @DeleteMapping("/delete/{id}")
-    public void deleteMaterial(@PathVariable String id){
+    public List<Materials> deleteMaterial(@PathVariable String id) {
 
-        materialService.deleteMaterial(id);
+        return materialService.deleteMaterial(id);
     }
 
     //    get material by specific id
     @GetMapping("/{id}")
-    public Materials getMaterialById(@PathVariable String id){
+    public Materials getMaterialById(@PathVariable String id) {
         return materialService.getMaterialById(id);
     }
+
+    // update material info
+    @PutMapping("/update/{id}")
+    public void updateMaterial(@PathVariable String id,@RequestBody Materials material) {
+        materialService.updateMaterial(id,material);
+    }
+
 }
