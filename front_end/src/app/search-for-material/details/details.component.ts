@@ -15,6 +15,8 @@ export class DetailsComponent implements OnInit {
 
   material:Material;
 
+  // url:string ="file:///C:/Users/shaha/Desktop/ShahadAlkhathamiCV.pdf";
+
   constructor(private route:ActivatedRoute, private materialService:MaterialService) { }
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class DetailsComponent implements OnInit {
         console.log(response);
         
         this.material = response;
+        // this.url = response.file;
+        // this.url = this.url.substring(12);
+        // console.log(this.url+" url");
+        
+
       }
     )
   }

@@ -1,0 +1,26 @@
+<form class="form-fieldset" [formGroup]="form" (ngSubmit)="Submit()">
+
+   
+     
+       <div class="mb-3">
+               <label class="form-label required">الاسم الكامل</label>
+               <input type="text" class="form-control" autocomplete="off" formControlName="fullName"/>
+               <p *ngIf="!form.get('fullName').valid && form.get('fullName').touched">*طول الاسم لايجب ان يزيد عن 50 حرف او يقل عن حرفين</p>
+             </div> 
+   
+             <div class="mb-3">
+                   <label class="form-label required">اسم المستخدم</label>
+                   <input type="text" class="form-control" autocomplete="off" formControlName="username"/>
+                   <p *ngIf="!form.get('username').valid && form.get('username').touched">*طول اسم المستخدم لايجب ان يزيد عن 15 حرف او يقل عن حرفين</p>
+                 </div> 
+   
+                 <div class="mb-3">
+                       <label class="form-label required">عنوان البريد الالكتروني</label>
+                       <input type="text" class="form-control" autocomplete="off" formControlName="email"/>
+                       <p *ngIf="!form.get('email').valid && form.get('email').touched">*طول البريد الالكتروني لايجب ان يزيد عن 150 حرف او يقل عن 4 حروف</p>
+                     </div> 
+   
+                     <button class="btn btn-light" [disabled]="!form.valid" type="submit" >إضافة</button>
+   
+     </form>
+   

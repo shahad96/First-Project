@@ -1,0 +1,19 @@
+p{
+    color: red;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+input{
+    width: 500px;
+}
+
+select{
+    width: 500px;
+}

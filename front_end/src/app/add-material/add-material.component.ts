@@ -12,6 +12,8 @@ export class AddMaterialComponent implements OnInit {
 
   form: FormGroup;
 
+  // formData = new FormData();
+
   constructor(private materialService:MaterialService,private router:Router) { }
 
   ngOnInit(): void {
@@ -33,5 +35,8 @@ export class AddMaterialComponent implements OnInit {
 
     this.materialService.AddMaterial(this.form);
     this.router.navigate(['/materials']);
+
+    // this.formData.append("form", new Blob([JSON.stringify(this.form)],{type : 'application/json'}))
+    // this.formData.append("file", this.form.file)
   }
 }

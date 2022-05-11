@@ -1,0 +1,32 @@
+
+<input type="text" class="form-control" placeholder="البحث..." (change)="search()" [(ngModel)]="search_key">
+
+
+<div class="table-responsive">
+    <table
+          class="table table-vcenter">
+      <thead>
+        <tr>
+          <th>اسم المستخدم</th>
+          <th>البريد الالكتروني</th>
+          <th>الحالة</th>
+          <th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let user of users; let i = index">
+          <td (click)="details(i)"><a class="text-reset">{{user.username}}</a></td>
+          <td class="text-muted" >{{user.email}}</td>
+          <td class="text-muted" >{{user.status}}</td>
+          <td>
+            <a class="btn btn-ghost-dark" (click)="update(i)">تعديل</a>
+            <br>
+            <a class="btn btn-ghost-dark" (click)="deleteUser(i)">حذف</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ 

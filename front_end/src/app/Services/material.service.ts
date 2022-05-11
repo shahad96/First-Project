@@ -21,7 +21,7 @@ export class MaterialService{
        return this.http.get<Material[]>('http://localhost:8080/material/all-materials');
     }
 
-    // GetAllMaterials method evoke materials that have the search value in the title to display
+    // searchForMaterial method evoke materials that have the search value in the title to display
     searchForMaterial(key:string){
         return this.http.get<Material[]>(`http://localhost:8080/material/search/${key}`);
     }
@@ -31,7 +31,7 @@ export class MaterialService{
         return this.http.delete<Material[]>(`http://localhost:8080/material/delete/${id}`);
     }
 
-    // deleteMaterial method used to get specific material by its id
+    // getMaterialById method used to get specific material by its id
     getMaterialById(id:number){
         return this.http.get<Material>(`http://localhost:8080/material/${id}`);
     }
